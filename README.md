@@ -56,13 +56,4 @@ Este proyecto es una aplicación web desarrollada en PHP que utiliza Docker para
 ```bash
 git clone https://github.com/sara12345689642/ProyectoFinal-Docker.git
 cd ProyectoFinal-Docker
->>>>>>> 1dbf3ae6d31ebbb82a31475136398045b0087cb2
-#Crear el archivo .env con el siguiente contenido:
-MYSQL_DATABASE=bienestar_u
-MYSQL_ROOT_PASSWORD=
-#Levantar los servicios con Docker Compose:
-docker-compose up -d --build
-#Importar la base de datos
-docker exec -i bienestaru_docker_web  mysql -uroot --protocol=tcp bienestar_u < bienestar_u.sql
-#Acceder a la aplicación:
-http://localhost:8080
+
