@@ -22,3 +22,26 @@ jobs:
 
       - name: Validar docker-compose.yml
         run: docker-compose config
+
+      - name: Iniciar servicios con docker-compose
+        run: docker-compose up -d --build
+
+      - name: Esperar a que la base de datos esté lista
+        run: |
+          for i in {1..30}; do
+            if docker-compose exec db mysqladmin ping -h localhost -u root -p${{ secrets.MYSQL_ROOT_PASSWORD }} --silent; then
+              echo "Base de datos lista!"
+              break
+            fi
+            echo "Esperando a la base de datos... ($i/30)"
+            sleep 2
+          done
+
+      - name: Verificar estado de los servicios
+        run: docker-compose ps
+
+      - name: Probar servicio web
+        run: curl -f http://localhost:8080 || exit 1
+
+      - name: Detener servicios
+        run: docker-compose down
