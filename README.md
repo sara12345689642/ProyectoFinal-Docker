@@ -57,3 +57,5 @@ Este proyecto es una aplicación web desarrollada en PHP que utiliza Docker para
 git clone https://github.com/sara12345689642/ProyectoFinal-Docker.git
 cd ProyectoFinal-Docker
 >>>>>>> 1dbf3ae6d31ebbb82a31475136398045b0087cb2
+
+2.**Crear el archivo .env con el siguiente contenido:**
